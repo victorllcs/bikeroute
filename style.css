@@ -1,0 +1,432 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Barra Superior */
+.barraSuperior {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ff3A6A;
+    padding: 10px 70px;
+}
+.logo {
+    width: 30%;
+}
+
+
+/* Links */
+.barMenu {
+    font-size: 20px;
+    display: flex;
+    list-style: none;
+}
+.barMenu a {
+    font-weight: 600;
+    text-decoration: none;
+    color: white;
+    padding: 0px 35px 0px;
+    padding: 0px 20px;
+    white-space: nowrap;
+}
+.barMenu a:hover {
+    color: #f3c5d2;
+}
+
+
+/* NavBar */
+#navBar {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 70px;
+    background-color: #787474;
+    align-items: center;
+}
+#botoes {
+    color: white;
+    border-color: rgba(255, 255, 255, 0);
+}
+#input-pesquisar {
+    outline: 0;
+    width: 200px;
+}
+#botao-pesquisar {
+    border: 0 none;
+    background-color: #494646;
+}
+.lupa {
+    width: 35px;
+}
+
+
+/* Navegação */
+.navegacao {
+    padding: 2% 10%;
+    background-color: rgb(228, 228, 228);
+}
+.navegacao h2 {
+    margin-bottom: 15px;
+}
+#titulos {
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+#titulos-format {
+    color: black;
+    text-decoration: none;
+}
+
+
+/* Footer */
+footer {
+    background-color: #ff3A6A;
+    text-align: center;
+    padding: 18px 0px 5px 0px;
+    color: white;
+}
+.logos-redes {
+    width: 30px;
+    margin-left: 25px;
+}
+.logos-redes-X {
+    width: 25px;
+    margin-left: 25px;
+}
+
+
+/* Carrosel */
+.carrosel-destaques, .carrosel-eventos, .carrosel-comunidade {
+    width: 100%;
+    object-fit: cover;
+    background-color: white;
+}
+.carrosel-destaques {
+    height: 300px;
+}
+.carrosel-eventos {
+    height: 200px;
+}
+.carrosel-comunidade {
+    height: 200px;
+}
+
+
+/* Rotas */
+#rotas {
+    margin: 15px 0px;
+    padding: 15px 15px;
+    background-color: white;
+}
+#fotos-rotas {
+    object-fit: cover;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.card-rotas {
+    border: solid 1px rgb(167, 167, 167);
+    margin-bottom: 15px;
+    height:98%;
+}
+.card-rotas p {
+    padding: 0px 5px;
+}
+#mapa {
+    background-color: white;
+}
+#perfil{
+    text-align: center;
+    border-radius: 50%;
+    width: 25%;
+}
+
+
+/* Comunidades */
+#comunidades {
+    margin: 15px 0px;
+    padding: 15px 15px;
+    background-color: white;
+}
+.navegacao-com {
+    display: grid;
+    grid-template-columns: 75% 25%;
+    gap: 20px;
+}
+#area-com {
+    background-color: white;
+    margin-bottom: 15px;
+    padding: 10px 17px;
+}
+#area {
+    padding-bottom: 15px;
+}
+#titulos-com {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+#input-pesquisar-com {
+    width: 100%;
+    outline: 0;
+}
+.card-com {
+    border: solid 1px rgb(167, 167, 167);
+    margin-bottom: 15px;
+    height: 98%;
+}
+.card-com h4 {
+    padding: 0px 15px;
+}
+.card-com p {
+    padding: 0px 15px;
+}
+
+
+/* Amigos e pessoas pessoas próximas */
+.perfil {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    margin-right: 15px;
+}
+.follow-button {
+    width: 30px;
+    height: 30px;
+}
+.profile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 13px;
+    margin-right: 10px;
+}
+.profile-info {
+    display: flex;
+}
+.profile-info h2 {
+    margin: 0px;
+    font-size: 15px;
+}
+.profile-info span {
+    font-size: 13px;
+    color: #888;
+}
+#area-amigos {
+    width: 40%;
+    margin: auto;
+}
+
+
+/* Adiconar fotos e rotas */
+#adicionar {
+    position: fixed;
+    cursor: pointer;
+    bottom: 40px;
+    right: 40px;
+    width: 50px;
+}
+#buttonContainer-adicionar {
+    display: none;
+    position: fixed;
+    bottom: 90px;
+    right: 35px;
+}
+.buttons-adicionar {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 5px;
+}
+#adicionarFotos, #adicionarRotasButton {
+    background-color: #ff3A6A;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4%;
+    white-space: nowrap;
+}
+#adicionarFotos:hover, #adicionarRotasButton:hover {
+    background-color: #ff5b84;
+}
+#area-add-rotas {
+    text-align: center;
+    margin: 0 auto;
+    padding: 3% 7%;
+    background-color: white;
+    width: 90%;
+    border-radius: 10px;
+}
+#area-add-fotos {
+    text-align: center;
+    margin: 0 auto;
+    background-color: white;
+    padding: 25px;
+    width: 43%;
+    border-radius: 10px;
+}
+.upload-label {
+    display: inline-block;
+    height: 200px;
+    padding: 20px;
+    border: 2px dashed #aaaaaa;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #ffffff;
+}
+.upload-text {
+    margin-top: 50px;
+}
+.hidden {
+    display: none;
+}
+.nome-da-imagem {
+    color: #333;
+    margin-top: 10px;
+}
+.enviar-btn {
+    background-color: #ff3A6A;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+
+/* Media Screens */
+@media (min-width: 640px) and (max-width: 952px) {
+    #navBar {
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .area-botao {
+        width: 50%;
+        text-align: center;
+    }
+    .barMenu a {
+        font-size: 15px;
+    }
+    #area-pesquisar {
+        padding: 5px;
+    }
+    .logo {
+        width: 150px;
+    }
+    .navegacao {
+        padding: 4% 6%;
+    }
+    .card-rotas p {
+        font-size: 13px;
+    }
+    .card-rotas h4 {
+        font-size: 18px;
+        padding: 0px 8px;
+    }
+    #mapa {
+        height: 200px;
+    }
+    .carrosel-destaques {
+        height: 200px;
+    }
+    .carrosel-eventos, .carrosel-comunidade {
+        height: 160px;
+    }
+    #area-amigos {
+        width: 70%;
+        margin: auto;
+    }
+    #area-add-fotos {
+        width: 70%;
+        margin: auto;
+    }
+    #fotos-rotas {
+        height: 225px;
+    }
+}
+
+@media (min-width: 0px) and (max-width: 639px) {
+    #navBar {
+        flex-direction: column;
+    }
+    .area-botao {
+        text-align: center;
+        width: 100%;
+    }
+    footer p {
+        font-size: 12px;
+    }
+    .barraSuperior {
+        flex-direction: column;
+        align-items: center;
+    }
+    .barMenu {
+        margin: 0px;
+        padding: 0px;
+    }
+    .barMenu a {
+        font-size: 14px;
+    }
+    .logo {
+        width: 210px;
+    }
+    .navegacao {
+        padding: 4% 4%;
+    }
+    .card-rotas p {
+        font-size: 13px;
+    }
+    .card-rotas h4 {
+        font-size: 18px;
+        padding: 0px 8px;
+    }
+    #mapa {
+        height: 150px;
+    }
+    .carrosel-destaques,.carrosel-comunidade {
+        height: 150px;
+    }
+    .carrosel-eventos {
+        height: 130px;
+    }
+    .navegacao-com {
+        margin-top: -30px;
+    }
+    .card-com h4 {
+        font-size: 18px;
+    }
+    .card-com p {
+        font-size: 13px;
+    }
+    #area {
+        margin-top: 30px;
+    }
+    #area-amigos {
+        width: 95%;
+        margin: auto;
+    }
+    #area-add-rotas {
+        width: 97%;
+        margin: auto;
+    }
+    #area-add-fotos {
+        width: 97%;
+        margin: auto;
+    }
+    #adicionarRotas {
+        right: 10px;
+        bottom: 10px;
+        width: 45px;
+    }
+    #fotos-rotas {
+        height: 250px;
+    } 
+}
+
+@media (min-width: 0px) and (max-width: 1020px) {
+    .navegacao-com {
+        display: block;
+    }
+}

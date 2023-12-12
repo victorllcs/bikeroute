@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Fotos</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+        </script>
+
+    <header class="barraSuperior">
+        <a href="homepage.html"><img src="https://bikeroute-json.bikeroute.repl.co/uploads/logoOficial.png"
+                class="logo"></a>
+        <ul class="barMenu">
+            <li><a href="#" id="faleconosco">Fale Conosco</a></li>
+            <li><a href="#" id="sobrenos">Sobre nós</a></li>
+        </ul>
+    </header>
+
+    <nav>
+        <div id="navBar" class="d-flex flex-wrap">
+            <div class="area-botao">
+                <div class="dropdown">
+                    <button id="botoes" class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        ROTAS
+                    </button>
+                    <ul id="boxdrop" class="dropdown-menu">
+                        <li><a class="dropdown-item" href="rotas.html">Rotas Populares</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="area-botao">
+                <div class="dropdown">
+                    <button id="botoes" class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        COMUNIDADE
+                    </button>
+                    <ul id="boxdrop" class="dropdown-menu">
+                        <li><a class="dropdown-item" href="comunidade.html">Explorar</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="area-botao">
+                <div class="dropdown">
+                    <button id="botoes" class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        EVENTOS
+                    </button>
+                    <ul id="boxdrop" class="dropdown-menu">
+                        <li><a class="dropdown-item" href="eventos.html">Calendário de eventos</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="area-botao">
+                <div class="dropdown">
+                    <button id="botoes" class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        CONFIGURAÇÕES
+                    </button>
+                    <ul id="boxdrop" class="dropdown-menu">
+                        <li><a class="dropdown-item" href="perfil.html">Perfil</a></li>
+                    </ul>
+                </div>
+            </div>
+            <form id="area-pesquisar" class="d-flex" role="search">
+                <input id="input-pesquisar" type="search" placeholder=" Rotas para Speed Bikes" aria-label="Search">
+                <button id="botao-pesquisar" type="submit">
+                    <img class="lupa" src="https://bikeroute-json.bikeroute.repl.co/uploads/lupa.png">
+                </button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="navegacao">
+        <div id="area-add-fotos">
+            <h2>Envie sua foto:</h2>
+            <form id="enviar-foto-form" enctype="multipart/form-data" action="https://bikeroute-json.bikeroute.repl.co">
+
+                <input type="hidden" id="username-comunidade" name="username" value="">
+
+                <label for="inserir-imagem" class="upload-label">
+                    <div class="upload-text">
+                        <span>Arraste e solte a imagem aqui ou clique para selecionar</span>
+                    </div>
+                </label>
+                <input type="file" id="inserir-imagem" class="hidden" accept="image/*">
+                <div id="nome-da-imagem" class="nome-da-imagem"></div>
+
+                <button type="submit" class="enviar-btn">Enviar</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="redes-sociais">
+            <p>Copyright &copy; 2023 - Todos direitos reservados BIKE ROUTE
+            <p>
+                <a href="https://www.instagram.com/bikeroute6/" target="_blank"><img class="logos-redes"
+                        src="https://bikeroute-json.bikeroute.repl.co/uploads/instagram.png"></a>
+                <a href="https://www.facebook.com" target="_blank"><img class="logos-redes"
+                        src="https://bikeroute-json.bikeroute.repl.co/uploads/facebook.png"></a>
+                <a href="https://twitter.com/?lang=pt" target="_blank"><img class="logos-redes-X"
+                        src="https://bikeroute-json.bikeroute.repl.co/uploads/twitter-X.png"></a>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const inputImagem = document.getElementById('inserir-imagem');
+            const nomeDaImagem = document.getElementById('nome-da-imagem');
+            const form = document.getElementById('enviar-foto-form');
+
+            inputImagem.addEventListener('change', function () {
+                const nomeArquivo = inputImagem.files[0].name;
+                nomeDaImagem.textContent = `Nome da Imagem: ${nomeArquivo}`;
+            });
+
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                const formData = new FormData(form);
+                formData.append('inserir-imagem', inputImagem.files[0]);
+
+                fetch('https://bikeroute-json.bikeroute.repl.co', {
+                    method: 'POST',
+                    body: formData,
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        alert('Imagem enviada com sucesso!');
+                        window.location.href = 'homepage.html';
+                    })
+                    .catch(error => {
+                        console.error('Erro ao enviar imagem:', error);
+                        alert('Erro ao enviar imagem. Tente novamente.');
+                    });
+            });
+
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                const usernameComunidade = localStorage.getItem('username');
+                document.getElementById('username-comunidade').value = usernameComunidade;
+                const formData = new FormData(form);
+
+                const nomeArquivo = inputImagem.files[0].name;
+                nomeDaImagem.textContent = `Nome da Imagem: ${nomeArquivo}`;
+                formData.set('fotos', nomeArquivo);
+
+                fetch('https://bikeroute-json.bikeroute.repl.co/comunidade', {
+                    method: 'POST',
+                    body: formData,
+                })
+            });
+        });
+    </script>
+</body>
+
+</html>
