@@ -125,30 +125,34 @@
     <footer>
         <div class="redes-sociais">
             <p>Copyright &copy; 2023 - Todos direitos reservados BIKE ROUTE
-            <p>
-                <a href="https://www.instagram.com/bikeroute6/" target="_blank"><img class="logos-redes"
-                        src="https://bikeroute-json.bikeroute.repl.co/uploads/instagram.png"></a>
-                <a href="https://www.facebook.com" target="_blank"><img class="logos-redes"
-                        src="https://bikeroute-json.bikeroute.repl.co/uploads/facebook.png"></a>
-                <a href="https://twitter.com/?lang=pt" target="_blank"><img class="logos-redes-X"
-                        src="https://bikeroute-json.bikeroute.repl.co/uploads/twitter-X.png"></a>
+                <p>
+                    <a href="https://www.instagram.com/bikeroute6/" target="_blank"><img class="logos-redes"
+                            src="https://bikeroute-json.bikeroute.repl.co/uploads/instagram.png"></a>
+                    <a href="https://www.facebook.com" target="_blank"><img class="logos-redes"
+                            src="https://bikeroute-json.bikeroute.repl.co/uploads/facebook.png"></a>
+                    <a href="https://twitter.com/?lang=pt" target="_blank"><img class="logos-redes-X"
+                            src="https://bikeroute-json.bikeroute.repl.co/uploads/twitter-X.png"></a>
         </div>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const form = document.getElementById('form-rota');
+
             form.addEventListener('submit', function (event) {
                 event.preventDefault();
-                const username = localStorage.getItem('username');
-                const formData = new FormData(form);
-                const rotaData = {};
-                formData.forEach((value, key) => {
-                    rotaData[key] = value;
-                });
-                rotaData['username'] = username;
-                const apiUrl = 'https://bikeroute-json.bikeroute.repl.co/rotas';
 
+                const username = localStorage.getItem('username');
+                const rotaData = {
+                    'nome': document.getElementById('nome-rota').value,
+                    'partida': document.getElementById('partida-rota').value,
+                    'chegada': document.getElementById('chegada-rota').value,
+                    'descricao': document.getElementById('descricao-rota').value,
+                    'observacoes': document.getElementById('observacoes-rota').value,
+                    'username': username,
+                };
+
+                const apiUrl = 'https://bikeroute-json.bikeroute.repl.co/rotas';
                 fetch(apiUrl, {
                     method: 'POST',
                     headers: {
@@ -166,6 +170,7 @@
                         console.error('Error:', error);
                     });
             });
+
         });
     </script>
 </body>

@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet"/>
 </head>
 
 <body>
@@ -82,7 +84,7 @@
     <div class="navegacao">
 
         <div class="border">
-            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="10000">
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6000">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
                         class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -122,16 +124,7 @@
                 <h2 id="titulos">Rotas Populares</h2>
             </a>
             <div class="container text-center">
-                <div class="row">
-                    <div class="col-md-3 col-sm-4 col-6">
-                        <div class="card-rotas">
-                            <a href="#"><img src="images/imagem1.png" id="fotos-rotas" class="img-fluid"></a>
-                            <h4>Rota do Pedro</h4>
-                            <p>Fiz essa rota como uma forma de treinar o condicionamento, é uma rota bem fácil e curta,
-                                indico para todos.</p>
-                        </div>
-                    </div>
-                </div>
+                <div class="row" id="preencher-rotas"></div>
             </div>
         </article>
 
@@ -153,7 +146,7 @@
                         aria-label="Slide 3"></button>
                 </div>
 
-                <div class="carousel-inner" data-bs-ride="carousel" data-bs-interval="15000">
+                <div class="carousel-inner" data-bs-ride="carousel" data-bs-interval="7000">
                     <div class="carousel-item active">
                         <a href="eventos.html"><img class="carrosel-eventos" src="https://bikeroute-json.bikeroute.repl.co/uploads/eventobike2.jpg" class="d-block"></a>
                         <div class="carousel-caption d-none d-md-block">
